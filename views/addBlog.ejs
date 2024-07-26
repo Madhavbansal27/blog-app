@@ -2,36 +2,58 @@
 <html lang="en">
   <head>
     <%- include("./partials/head") %>
-    <title>Add new blog</title>
+    <title>Add New Blog</title>
+    <style>
+      html, body {
+        height: 100%; /* Full height for the document */
+        margin: 0; /* Remove default margin */
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Make the wrapper full viewport height */
+      }
+      .content {
+        flex: 1; /* Make the content area expand to fill available space */
+      }
+      .footer {
+        background-color: #f8f9fa; /* Example background color */
+        
+        text-align: center; /* Center align text */
+      }
+    </style>
   </head>
   <body>
-    <%- include("./partials/nav") %>
-    <div class="container mt-3">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="coverImage" class="form-label">Cover Image</label>
-          <input type="file" class="form-control" id="coverImage" name="coverImage" />
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="title" />
-        </div>
-        <div class="mb-3">
-          <label for="body">Body</label>
-          <textarea
-            class="form-control"
-            placeholder="Write your content here..."
-            id="body"
-            name="body"
-          ></textarea>
-        </div>
-        <div class="mb-3">
-          <button type="submit" class="btn btn-primary">Create</button>
-
-        </div>
-      </form>
+    <div class="wrapper">
+      <%- include("./partials/nav") %>
+      <div class="content container mt-3">
+        <form action="/blog" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="coverImage" class="form-label">Cover Image</label>
+            <input type="file" class="form-control" id="coverImage" name="coverImage" />
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" />
+          </div>
+          <div class="mb-3">
+            <label for="body">Body</label>
+            <textarea
+              class="form-control"
+              placeholder="Write your content here..."
+              id="body"
+              name="body"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <%- include("./partials/footer") %>
+      </div>
     </div>
-    <%- include("./partials/footer") %>
     <%- include("./partials/scripts") %>
   </body>
 </html>
